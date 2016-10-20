@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { showPokemon } from '../actions/index';
 import { Link } from 'react-router';
 import Abilities from '../components/abilities';
+import Types from '../components/types';
+
 
 class PokemonShow extends Component {
   componentWillMount() {
@@ -18,6 +20,7 @@ class PokemonShow extends Component {
     }
 
     const abilities = pokemon.abilities.map(ability => ability.ability);
+    const types = pokemon.types.map(type => type.type);
     console.log(pokemon);
 
     return (
@@ -25,6 +28,9 @@ class PokemonShow extends Component {
         <div className="well">
           <img src={pokemon.sprites.front_default} />
           <h2>{pokemon.name.capitalizeFirstLetter()}</h2>
+          <hr />
+          <h3>Type(s):</h3>
+          <Types data={types} />
           <hr />
           <h3>Abilities:</h3>
           <Abilities data={abilities} />
