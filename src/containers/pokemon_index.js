@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPokemon } from '../actions/index';
+import { Link } from 'react-router';
 
 //capitalize first letter of pokemon names
 //add to String prototype for scalabitlity
@@ -18,7 +19,9 @@ class PokemonIndex extends Component {
     return this.props.pokemon.pokemon.map(pokemon => {
       return (
         <li className="list-group-item" key={pokemon.resource_uri} >
-          <strong>{pokemon.name.capitalizeFirstLetter()}</strong>
+          <Link to={`/${pokemon.resource_uri}`}>
+            <strong>{pokemon.name.capitalizeFirstLetter()}</strong>
+          </Link>
         </li>
       )
     });
