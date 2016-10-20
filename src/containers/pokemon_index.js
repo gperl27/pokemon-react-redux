@@ -16,10 +16,11 @@ class PokemonIndex extends Component {
   }
 
   renderPokemon() {
-    return this.props.pokemon.pokemon.map(pokemon => {
+
+    return this.props.pokemon.results.map(pokemon => {
       return (
-        <li className="list-group-item" key={pokemon.resource_uri} >
-          <Link to={`/${pokemon.resource_uri}`}>
+        <li className="list-group-item" key={pokemon.name} >
+          <Link to={`${pokemon.name}`}>
             <strong>{pokemon.name.capitalizeFirstLetter()}</strong>
           </Link>
         </li>
@@ -28,13 +29,12 @@ class PokemonIndex extends Component {
   }
 
   render() {
-    if(!this.props.pokemon.pokemon){
+    if(!this.props.pokemon.results){
       return <div>Loading...</div>
     }
 
     return (
       <div>
-        <h2>PokemonList</h2>
         <ul className="list-group">
           {this.renderPokemon()}
         </ul>

@@ -9,6 +9,6 @@ import App from './components/app';
 export default (
     <Route path="/" component={App}>
       <IndexRoute component={PokemonIndex} />
-      <Route path="/api/v1/pokemon/:id" component={PokemonShow} />
+      <Route path="/:name" component={PokemonShow} />
     </Route>
   );

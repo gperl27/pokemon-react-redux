@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 class PokemonShow extends Component {
   componentWillMount() {
-    this.props.showPokemon(this.props.params.id);
+    this.props.showPokemon(this.props.params.name);
   }
 
   render() {
